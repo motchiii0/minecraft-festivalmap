@@ -1,0 +1,113 @@
+/* ===== 全体 ===== */
+body {
+  margin: 0;
+  background-color: #0b0d0f;
+  color: #e5e5e5;
+  font-family: "Yu Mincho", "游明朝", serif;
+  line-height: 1.8;
+}
+
+/* ===== HEADER ===== */
+.header {
+  min-height: 100vh;
+  padding: 120px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    radial-gradient(circle at top, #1b5e20 0%, #000 65%);
+  position: relative;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.header h1 {
+  font-size: 72px;
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+
+.header p {
+  margin-top: 24px;
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+/* ===== SECTION ===== */
+.section {
+  max-width: 1000px;
+  margin: 160px auto;
+  padding: 0 40px;
+}
+
+.section h2 {
+  font-size: 32px;
+  letter-spacing: 0.3em;
+  margin-bottom: 40px;
+  border-left: 4px solid #4caf50;
+  padding-left: 20px;
+}
+
+/* ===== MINIGAME 共通 ===== */
+.minigame {
+  margin-top: 120px;
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 40%;
+}
+
+.minigame h3 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.minigame img {
+  width: 100%;
+  margin: 30px 0;
+  image-rendering: pixelated;
+  filter: brightness(0.9);
+}
+
+/* ===== ミニゲーム個別カラー ===== */
+.shateki h3 {
+  color: #81c784;
+}
+
+.kingyo h3 {
+  color: #64b5f6;
+}
+
+.nazotoki h3 {
+  color: #ffd54f;
+}
+
+.killerchair h3 {
+  color: #e57373;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.4;
+  margin: 160px 0 40px;
+}
+
+/* ===== スクロール演出 ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
