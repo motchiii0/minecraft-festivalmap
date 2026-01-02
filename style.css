@@ -1,5 +1,8 @@
 /* 全体的な背景的な */
 body {
+  background-color: url(loading.gif) center / cover no-repeat fixed;
+  animation: removeBg 0s linear forwards;
+  animation-delay: 3s;
   margin: 0;
   background-color: #0b0d0f;
   color: #ffffff;
@@ -7,6 +10,11 @@ body {
   line-height: 1.8;
 }
 
+@keyframes removeBg {
+  to {
+   background: none;
+  }
+}
 
 
 /* ヘッダー　背景に花火 */
@@ -152,4 +160,19 @@ body {
   }
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("loading.gif") center / cover no-repeat;
+  z-index: 9999;
+  animation: fadeOut 1s ease forwards;
+  animation-delay: 3s;
+}
 
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
