@@ -22,14 +22,14 @@
   opacity: 1;
 }
 
-/* 左 */
+/* 左の写真 */
 #opening .left {
   left: 0;
   background-image: url("photo_left.jpeg");
   animation: slideLeftFade 1.5s ease forwards;
 }
 
-/* 右 */
+/* 右の写真 */
 #opening .right {
   right: 0;
   background-image: url("photo_right.jpeg");
@@ -43,38 +43,38 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 700px; /* 2倍サイズ */
+  width: 700px;
+  height: auto;
   transform: translate(-50%, -50%);
   opacity: 0;
   animation: fireworksFade 1s 1.5s forwards;
 }
 
 /* =========================
-   花火（斜め左・追加分）
-   HTML追加なし！
+   花火（斜め左・追加）
+   fireworks.jpg を使用
 ========================= */
 #opening .fireworks::before {
   content: "";
   position: absolute;
   width: 500px;
   height: 500px;
-  background-image: url("fireworks.gif");
+  background-image: url("fireworks.jpg");
   background-size: contain;
   background-repeat: no-repeat;
 
-  /* 位置（斜め左上） */
+  /* 斜め左上に配置 */
   top: -180px;
   left: -420px;
 
-  /* 斜めに傾ける */
   transform: rotate(-25deg);
-
   opacity: 0;
+
   animation: fireworksSubFade 1s 1.6s forwards;
 }
 
 /* =========================
-   アニメーション
+   アニメーション定義
 ========================= */
 @keyframes slideLeftFade {
   0% {
@@ -121,7 +121,7 @@
 }
 
 /* =========================
-   スマホ微調整
+   スマホ用微調整
 ========================= */
 @media (max-width: 600px) {
   #opening .fireworks {
