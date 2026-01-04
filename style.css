@@ -67,3 +67,35 @@ h3 {
   font-size: 14px;
   color: #aaa;
 }
+
+
+/* ===== タイトル文字の色が揺れる演出 ===== */
+.header h1 {
+  background: linear-gradient(
+    120deg,
+    #ffcc66,
+    #ff6699,
+    #66ccff,
+    #ffcc66
+  );
+  background-size: 300% 300%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  animation: titleColorWave 6s ease-in-out infinite;
+}
+
+/* キーフレーム（色が流れる） */
+@keyframes titleColorWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
