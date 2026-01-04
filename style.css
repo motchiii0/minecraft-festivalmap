@@ -1,15 +1,14 @@
-/* リセット */
 body {
   margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   background: #0b0b0b;
   color: #f5f5f5;
 }
 
-/* タイトル */
+/* ヘッダー */
 .header {
   text-align: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
   background: url("fireworks.jpg") center / cover no-repeat;
 }
 
@@ -17,12 +16,11 @@ body {
   display: inline-block;
   padding: 20px 40px;
   font-size: 48px;
+  background: rgba(0,0,0,0.6);
   border: 2px solid rgba(255,255,255,0.4);
-  background: rgba(0,0,0,0.55);
-  letter-spacing: 0.1em;
 }
 
-/* セクション共通 */
+/* セクション */
 .section,
 .mimigame {
   max-width: 900px;
@@ -34,29 +32,11 @@ h2 {
   font-size: 32px;
   border-left: 5px solid #ffcc66;
   padding-left: 15px;
-  margin-bottom: 30px;
 }
 
 p {
   font-weight: 600;
-  line-height: 1.9;
-}
-
-/* 画像 */
-img {
-  max-width: 100%;
-  display: block;
-  margin: 30px auto;
-}
-
-/* ミニゲーム */
-.mimigame > div {
-  margin-bottom: 60px;
-}
-
-h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
+  line-height: 1.8;
 }
 
 /* フッター */
@@ -64,38 +44,5 @@ h3 {
   text-align: center;
   padding: 30px;
   background: #000;
-  font-size: 14px;
   color: #aaa;
-}
-
-
-/* ===== タイトル文字の色が揺れる演出 ===== */
-.header h1 {
-  background: linear-gradient(
-    120deg,
-    #ffcc66,
-    #ff6699,
-    #66ccff,
-    #ffcc66
-  );
-  background-size: 300% 300%;
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-
-  animation: titleColorWave 6s ease-in-out infinite;
-}
-
-/* キーフレーム（色が流れる） */
-@keyframes titleColorWave {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }

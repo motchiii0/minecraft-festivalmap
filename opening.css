@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  background: black;
+  overflow: hidden;
+}
+
+/* 全画面 */
+#opening {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 9999;
+}
+
+/* 左右の写真 */
+.photo {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  animation: photoFadeOut 3s forwards;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+/* 花火GIF */
+.fireworks {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: fireworksShow 3s forwards;
+}
+
+/* 写真が消える */
+@keyframes photoFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 花火が出て消える */
+@keyframes fireworksShow {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
