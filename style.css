@@ -1,148 +1,64 @@
-/* ===== 全体 ===== */
-body {
-  margin: 0;
-  background-color: #0b0d0f;
-  color: #e5e5e5;
-  font-family: 'Oswald', sans-serif;
-  line-height: 1.8;
-}
-
-/* ===== オープニング ===== */
-#opening {
+/* ===== オープニング全体 ===== */
+.opening {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: black;
   z-index: 9999;
   overflow: hidden;
 }
 
-#opening img {
+/* 左右写真共通 */
+.opening-photo {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+/* 左の写真 */
+.opening-photo.left {
+  left: 0;
+  background-image: url("photo_left.jpeg");
+  background-size: cover;
+  background-position: center;
+  animation-name: slideLeftFade;
+}
+
+/* 右の写真 */
+.opening-photo.right {
+  right: 0;
+  background-image: url("photo_right.jpeg");
+  background-size: cover;
+  background-position: center;
+  animation-name: slideRightFade;
+}
+
+/* 花火GIF */
+.fireworks {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-}
-
-/* 左右写真 */
-.photo {
-  width: 50%;
-  transition: transform 1.2s ease, opacity 1.2s ease;
-}
-
-.photo.left { left: 0; }
-.photo.right { right: 0; }
-
-/* 花火 */
-.fireworks {
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 300px;
+  transform: translate(-50%, -50%);
   opacity: 0;
-  transition: opacity 1s ease;
+  animation: fireworksFade 1s 1.5s forwards;
 }
 
-/* 動作 */
-#opening.start .photo.left {
-  transform: translate(-100%, -50%);
-  opacity: 0;
+/* ===== アニメーション ===== */
+@keyframes slideLeftFade {
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
 }
 
-#opening.start .photo.right {
-  transform: translate(100%, -50%);
-  opacity: 0;
+@keyframes slideRightFade {
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
 }
 
-#opening.show-fireworks .fireworks {
-  opacity: 1;
-}
-
-#opening.end {
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-/* ===== HEADER ===== */
-.header {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url('fireworks.jpg') center/cover no-repeat;
-}
-
-.header h1 {
-  font-size: 80px;
-  font-family: 'Bungee', cursive;
-  background: linear-gradient(270deg, #ff5f6d, #ffc371, #24c6dc, #8e2de2);
-  background-size: 800% 800%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientBG 8s ease infinite;
-
-  border: 2px solid rgba(255,255,255,0.5);
-  padding: 20px 40px;
-  border-radius: 20px;
-
-  background-color: rgba(0,0,0,0.4);
-  backdrop-filter: blur(6px);
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
-}
-
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* ===== セクション ===== */
-.section, .mimigame {
-  max-width: 1000px;
-  margin: 100px auto;
-  padding: 0 20px;
-}
-
-.section h2, .mimigame h2 {
-  font-size: 32px;
-  border-left: 4px solid #4caf50;
-  padding-left: 20px;
-}
-
-.section p, .mimigame p {
-  font-weight: 600;
-  font-size: 18px;
-}
-
-/* ===== ミニゲーム ===== */
-.mimigame > div {
-  margin-bottom: 80px;
-  padding-left: 20px;
-}
-
-.mimigame img {
-  width: 100%;
-  margin: 20px 0;
-  image-rendering: pixelated;
-}
-
-/* 色分け */
-.shateki h3 { color: #81c784; }
-.kingyo h3 { color: #64b5f6; }
-.nazotoki h3 { color: #ffd54f; }
-.killerchair h3 { color: #e57373; }
-
-/* ===== フッター ===== */
-.footer {
-  text-align: center;
-  font-size: 12px;
-  opacity: 0.4;
-  margin: 160px 0 40px;
-}
-
-/* ===== スマホ ===== */
-@media screen and (max-width: 768px) {
-  .header h1 {
-    font-size: 50px;
-  }
+@keyframes fireworksFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
