@@ -4,7 +4,7 @@ body {
   overflow: hidden;
 }
 
-/* 全画面 */
+/* オープニング全体 */
 #opening {
   position: fixed;
   inset: 0;
@@ -19,53 +19,61 @@ body {
   width: 50%;
   height: 100%;
   object-fit: cover;
-  animation: photoFadeOut 3s forwards;
 }
 
+/* 左 */
 .left {
   left: 0;
+  animation: slideLeftFade 1s ease-out forwards;
 }
 
+/* 右 */
 .right {
   right: 0;
+  animation: slideRightFade 1s ease-out forwards;
+}
+
+/* 左右に分かれてフェードアウト */
+@keyframes slideLeftFade {
+  to {
+    transform: translateX(-25%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideRightFade {
+  to {
+    transform: translateX(25%);
+    opacity: 0;
+  }
 }
 
 /* 花火GIF */
 .fireworks {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 70%;
+  top: 58%;
+  left: 58%;
+  width: 130%;          /* 1.3倍 */
+  max-width: 750px;
   transform: translate(-50%, -50%);
   opacity: 0;
-  animation: fireworksShow 3s forwards;
+
+  animation: fireworksShow 1s ease-in-out forwards;
+  animation-delay: 1s;  /* 左右写真が消えたあと */
 }
 
-/* 写真が消える */
-@keyframes photoFadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-/* 花火が出て消える */
+/* 花火の表示アニメーション */
 @keyframes fireworksShow {
   0% {
     opacity: 0;
   }
-  40% {
-    opacity: 0;
-  }
-  60% {
+  15% {
     opacity: 1;
   }
-  90% {
+  85% {
     opacity: 1;
   }
   100% {
-    opacity: 0;
+    opacity: 1;
   }
 }
