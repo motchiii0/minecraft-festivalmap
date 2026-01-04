@@ -22,14 +22,14 @@
   opacity: 1;
 }
 
-/* 左の写真 */
+/* 左 */
 #opening .left {
   left: 0;
   background-image: url("photo_left.jpeg");
   animation: slideLeftFade 1.5s ease forwards;
 }
 
-/* 右の写真 */
+/* 右 */
 #opening .right {
   right: 0;
   background-image: url("photo_right.jpeg");
@@ -43,59 +43,42 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 700px;
-  height: auto;
+  width: 525px;
   transform: translate(-50%, -50%);
   opacity: 0;
   animation: fireworksFade 1s 1.5s forwards;
 }
 
 /* =========================
-   花火（斜め左・追加）
-   fireworks.jpg を使用
+   花火（左上・少し遅れて表示）
 ========================= */
 #opening .fireworks::before {
   content: "";
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 420px;
+  height: 420px;
   background-image: url("fireworks.jpg");
   background-size: contain;
   background-repeat: no-repeat;
 
-  /* 斜め左上に配置 */
-  top: -180px;
-  left: -420px;
+  top: -260px;
+  left: -360px;
 
-  transform: rotate(-25deg);
   opacity: 0;
-
-  animation: fireworksSubFade 1s 1.6s forwards;
+  animation: fireworksSubFade 1s 2.0s forwards; /* ← 遅延 */
 }
 
 /* =========================
-   アニメーション定義
+   アニメーション
 ========================= */
 @keyframes slideLeftFade {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
 }
 
 @keyframes slideRightFade {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
 }
 
 @keyframes fireworksFade {
@@ -112,26 +95,26 @@
 @keyframes fireworksSubFade {
   0% {
     opacity: 0;
-    transform: rotate(-25deg) scale(0.8);
+    transform: scale(0.8);
   }
   100% {
     opacity: 1;
-    transform: rotate(-25deg) scale(1);
+    transform: scale(1);
   }
 }
 
 /* =========================
-   スマホ用微調整
+   スマホ調整
 ========================= */
 @media (max-width: 600px) {
   #opening .fireworks {
-    width: 500px;
+    width: 420px;
   }
 
   #opening .fireworks::before {
-    width: 350px;
-    height: 350px;
-    top: -120px;
-    left: -280px;
+    width: 300px;
+    height: 300px;
+    top: -180px;
+    left: -260px;
   }
 }
