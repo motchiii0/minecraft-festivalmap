@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <title>マイクラ祭りマップ</title>
@@ -8,66 +8,84 @@
 
 <body>
 
-  <!-- サイト全体タイトル -->
-  <div class="header">
-    <h1>マイクラ祭りマップ</h1>
-    <p>
-        <!-- なくてもいいかな -->
-    </p>
-  </div>
-  <!-- サイト全体タイトルここまで -->
+<!-- ===== オープニング演出 ===== -->
+<div id="opening">
+  <img src="photo_left.jpg" class="photo left">
+  <img src="photo_right.jpg" class="photo right">
+  <img src="fireworks.gif" class="fireworks">
+</div>
 
-  <!-- マップ概要 -->
-  <div class="section">
-    <h2>マップ概要</h2>
-    <p>
-          マップ内には複数のミニゲームや肝試しが配置されており、
-          好きな順番で回って遊ぶことができます。
-        </p>
-    <img src="worldmap.png" alt="マイクラ祭りマップ全体像">
-  </div>
+<!-- ===== タイトル ===== -->
+<div class="header">
+  <h1>マイクラ祭りマップ</h1>
+</div>
 
-  <!-- ミニゲーム紹介 -->
-  <div class="mimigame">
-    <h2>ミニゲーム紹介</h2>
+<!-- ===== マップ概要 ===== -->
+<div class="section">
+  <h2>マップ概要</h2>
+  <p>
+    マップ内には複数のミニゲームや肝試しが配置されており、
+    好きな順番で回って遊ぶことができます。
+  </p>
+  <img src="worldmap.png" alt="マイクラ祭りマップ全体像">
+</div>
 
-    <div class="shateki">
-      <h3>射的</h3>
-      <img src="shateki.png" alt="射的">
-      <p>
-        動く的を狙ってポイントを獲得するミニゲームです。
-      </p>
-    </div>
+<!-- ===== ミニゲーム ===== -->
+<div class="mimigame">
+  <h2>ミニゲーム紹介</h2>
 
-    <div class="kingyo">
-        <h3>金魚掬い</h3>
-        <img src="kingyo.png" alt="金魚掬い">
-        <p>
-            タイミングよくボタンを押して金魚を獲得するミニゲームです。
-    　　</p>
-    </div>
-
-    <div class="nazotoki">
-      <h3>謎解き脱出ゲーム</h3>
-      <img src="nazotoki.png" alt="謎解きミニゲーム">
-      <p>
-        謎を解いて脱出するミニゲームです。
-      </p>
-    </div>
-
-    <div class="killerchair">
-      <h3>キラーチェア</h3>
-      <img src="killerchair.png" alt="キラーチェア">
-      <p>
-        ラウンド毎に少なくなる椅子に座り続け、最後まで生き残るミニゲームです。
-      </p>
-    </div>
-
+  <div class="shateki">
+    <h3>射的</h3>
+    <img src="shateki.png">
+    <p>動く的を狙ってポイントを獲得するミニゲームです。</p>
   </div>
 
-  <!-- フッター -->
-  <div class="footer">
-    <p>© マイクラ祭りマップ制作チーム</p>
+  <div class="kingyo">
+    <h3>金魚掬い</h3>
+    <img src="kingyo.png">
+    <p>タイミングよく操作して金魚を集めるミニゲームです。</p>
   </div>
+
+  <div class="nazotoki">
+    <h3>謎解き脱出ゲーム</h3>
+    <img src="nazotoki.png">
+    <p>仕掛けられた謎を解いて脱出を目指します。</p>
+  </div>
+
+  <div class="killerchair">
+    <h3>キラーチェア</h3>
+    <img src="killerchair.png">
+    <p>最後の椅子に座れた人が勝ち残るミニゲームです。</p>
+  </div>
+</div>
+
+<!-- ===== フッター ===== -->
+<div class="footer">
+  <p>© マイクラ祭りマップ制作チーム</p>
+</div>
+
+<!-- ===== オープニング制御JS ===== -->
+<script>
+  window.addEventListener('load', () => {
+    const opening = document.getElementById('opening');
+
+    setTimeout(() => {
+      opening.classList.add('start');
+    }, 500);
+
+    setTimeout(() => {
+      opening.classList.add('show-fireworks');
+    }, 1700);
+
+    setTimeout(() => {
+      opening.classList.add('end');
+    }, 2700);
+
+    setTimeout(() => {
+      opening.remove();
+    }, 3700);
+  });
+</script>
 
 </body>
+</html>
