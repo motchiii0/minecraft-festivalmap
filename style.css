@@ -1,75 +1,69 @@
-/* ===== オープニング ===== */
-#opening {
-  position: fixed;
-  inset: 0;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-
-  animation: openingFadeOut 3.5s forwards;
-}
-
-#opening img {
-  width: 150%;
-  max-width: 600px;
-  animation: fireworksFade 3s ease-in-out forwards;
-}
-
-@keyframes fireworksFade {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  20% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.05);
-  }
-}
-
-@keyframes openingFadeOut {
-  0% {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    pointer-events: none;
-  }
-}
-
-/* ===== 以下は仮の最低限 ===== */
+/* リセット */
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  background: #0b0b0b;
+  color: #f5f5f5;
 }
 
+/* タイトル */
 .header {
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
+  background: url("fireworks.jpg") center / cover no-repeat;
 }
 
+.header h1 {
+  display: inline-block;
+  padding: 20px 40px;
+  font-size: 48px;
+  border: 2px solid rgba(255,255,255,0.4);
+  background: rgba(0,0,0,0.55);
+  letter-spacing: 0.1em;
+}
+
+/* セクション共通 */
 .section,
 .mimigame {
-  padding: 40px 20px;
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 20px;
 }
 
+h2 {
+  font-size: 32px;
+  border-left: 5px solid #ffcc66;
+  padding-left: 15px;
+  margin-bottom: 30px;
+}
+
+p {
+  font-weight: 600;
+  line-height: 1.9;
+}
+
+/* 画像 */
+img {
+  max-width: 100%;
+  display: block;
+  margin: 30px auto;
+}
+
+/* ミニゲーム */
 .mimigame > div {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
+h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* フッター */
 .footer {
   text-align: center;
-  padding: 20px;
+  padding: 30px;
+  background: #000;
+  font-size: 14px;
+  color: #aaa;
 }
