@@ -1,5 +1,7 @@
-/* ===== オープニング全体 ===== */
-.opening {
+/* =========================
+   オープニング全体
+========================= */
+#opening {
   position: fixed;
   inset: 0;
   background: black;
@@ -7,58 +9,129 @@
   overflow: hidden;
 }
 
-/* 左右写真共通 */
-.opening-photo {
+/* =========================
+   左右に分かれる写真
+========================= */
+#opening .photo {
   position: absolute;
   top: 0;
-  width: 50%;
-  height: 100%;
-  object-fit: cover;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
+  width: 50vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
 }
 
-/* 左の写真 */
-.opening-photo.left {
+/* 左 */
+#opening .left {
   left: 0;
   background-image: url("photo_left.jpeg");
-  background-size: cover;
-  background-position: center;
-  animation-name: slideLeftFade;
+  animation: slideLeftFade 1.5s ease forwards;
 }
 
-/* 右の写真 */
-.opening-photo.right {
+/* 右 */
+#opening .right {
   right: 0;
   background-image: url("photo_right.jpeg");
-  background-size: cover;
-  background-position: center;
-  animation-name: slideRightFade;
+  animation: slideRightFade 1.5s ease forwards;
 }
 
-/* 花火GIF */
-.fireworks {
+/* =========================
+   花火（中央）
+========================= */
+#opening .fireworks {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 300px;
+  width: 700px; /* 2倍サイズ */
   transform: translate(-50%, -50%);
   opacity: 0;
   animation: fireworksFade 1s 1.5s forwards;
 }
 
-/* ===== アニメーション ===== */
+/* =========================
+   花火（斜め左・追加分）
+   HTML追加なし！
+========================= */
+#opening .fireworks::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background-image: url("fireworks.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  /* 位置（斜め左上） */
+  top: -180px;
+  left: -420px;
+
+  /* 斜めに傾ける */
+  transform: rotate(-25deg);
+
+  opacity: 0;
+  animation: fireworksSubFade 1s 1.6s forwards;
+}
+
+/* =========================
+   アニメーション
+========================= */
 @keyframes slideLeftFade {
-  0% { transform: translateX(0); opacity: 1; }
-  100% { transform: translateX(-100%); opacity: 0; }
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
 }
 
 @keyframes slideRightFade {
-  0% { transform: translateX(0); opacity: 1; }
-  100% { transform: translateX(100%); opacity: 0; }
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
 }
 
 @keyframes fireworksFade {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes fireworksSubFade {
+  0% {
+    opacity: 0;
+    transform: rotate(-25deg) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-25deg) scale(1);
+  }
+}
+
+/* =========================
+   スマホ微調整
+========================= */
+@media (max-width: 600px) {
+  #opening .fireworks {
+    width: 500px;
+  }
+
+  #opening .fireworks::before {
+    width: 350px;
+    height: 350px;
+    top: -120px;
+    left: -280px;
+  }
 }
