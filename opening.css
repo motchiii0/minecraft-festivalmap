@@ -10,70 +10,101 @@ body {
   inset: 0;
   background: black;
   z-index: 9999;
+  perspective: 1200px;
+
+  perspective: 1200px;
 }
 
-/* 左右の写真 */
+/* 左右の扉*/
 .photo {
   position: absolute;
   top: 0;
   width: 50%;
   height: 100%;
   object-fit: cover;
+  backface-visibility: hidden;
 }
 
-/* 左 */
+/* 左の扉 */
 .left {
   left: 0;
-  animation: slideLeftFade 1s ease-out forwards;
+  transform-origin: left center;
+  animation: doorLeft 1.5s ease-in forwards;
 }
 
-/* 右 */
+/* 右の扉 */
 .right {
   right: 0;
-  animation: slideRightFade 1s ease-out forwards;
+  transform-origin: right center;
+  animation: doorRight 1.5s ease-in forwards;
 }
 
-/* 左右に分かれてフェードアウト */
-@keyframes slideLeftFade {
-  to {
-    transform: translateX(-25%);
-    opacity: 0;
+/* 左扉がバタン！*/
+@keyframes doorLeft {
+  0% {
+    transform: rotateY(0deg) scale(1);
+    filter: brightness(1);
+  }
+  70% {
+    transform: rotateY(-70deg) scale(1);
+  }
+  100% {
+    transform: rotateY(-100deg) scale(1);
+    filter: brightness(0.5);
   }
 }
 
-@keyframes slideRightFade {
-  to {
-    transform: translateX(25%);
-    opacity: 0;
+/* 右扉がバタン！！*/
+@keyframes doorRight {
+  0% {
+    transform: rotateY(0deg) scale(1);
+    filter: brightness(1);
+  }
+  70% {
+    transform: rotateY(70deg) scale(1);
+  }
+  100% {
+    transform: rotateY(100deg) scale(1);
+    filter: brightness(0.5);
   }
 }
 
-/* 花火GIF */
+/* 花火（扉の後）*/
 .fireworks {
   position: absolute;
-  top: 58%;
-  left: 58%;
-  width: 130%;          /* 1.3倍 */
+  top: 50%;
+  left: 50%;
+  width: 120%;
   max-width: 750px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.1);
   opacity: 0;
 
-  animation: fireworksShow 1s ease-in-out forwards;
-  animation-delay: 1s;  /* 左右写真が消えたあと */
+  animation: fireworksShow 1s ease-out forwards;
+  animation-delay: 1s;
 }
 
-/* 花火の表示アニメーション */
 @keyframes fireworksShow {
   0% {
     opacity: 0;
-  }
-  15% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5);
   }
   100% {
     opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
+}
+
+.square {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border: 3px solid white;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation:
+    drawSquare 1s ease-out forwards,
+    rotateSquare 1s ease-in-out forwards;
+  animation-delay: 0s, 1s;
 }
