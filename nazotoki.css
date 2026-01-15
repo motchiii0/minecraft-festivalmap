@@ -1,0 +1,219 @@
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  background: #0b0b0b;
+  color: #f5f5f5;
+  padding: 0 16px
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+
+}
+
+/* ヘッダー */
+.header {
+  text-align: center;
+  padding: 100px 20px;
+  background: url("fireworks.jpg") center / cover no-repeat;
+}
+
+.header h1 {
+  display: inline-block;
+  padding: 20px 40px;
+  font-size: 48px;
+  background: rgba(0,0,0,0.6);
+  border: 2px solid rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* セクション */
+.section,
+.mimigame {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+
+h2 {
+  padding-left: 15px;
+  padding-bottom: 10px;          
+  border-left: 5px solid;
+  border-bottom: 2px solid #fff; 
+  border-image: linear-gradient(to bottom, #ffcc66, #ff6666) 1;
+  
+}
+
+h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 0px;
+  display: inline-block;
+}
+
+p {
+  font-weight: 600;
+  line-height: 1.3;
+  font-size: 20px;
+}
+
+/* 画像 */
+.section img,
+.mimigame img {
+  max-width: 600px;
+  width: 100%;
+  display: block;
+  margin: 30px auto;
+}
+
+/* ミニゲーム間隔 */
+.mimigame > div {
+  margin-bottom: 60px;
+}
+
+/* フッター */
+.footer {
+  text-align: center;
+  padding: 30px;
+  background: #000;
+  color: #aaa;
+  font-size: 20px;
+}
+
+/* フッターの画像のやつ */
+.footer img {
+  height: 50px;        
+  top: 50%;
+}
+
+
+/* 三本線 */
+.menu-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.menu-button span {
+  display: block;
+  height: 4px;
+  background: white;
+  margin: 6px 0;
+  transition: 0.3s ease;
+}
+
+/* メニュー */
+.menu {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 30vh;
+  background: rgba(0,0,0,0.9);
+  padding: 80px 20px;
+  transition: right 0.3s ease;
+  z-index: 9999;
+}
+
+.menu.open {
+  top: 0;
+}
+
+.menu a {
+  color: white;        
+  font-size: 30px;  
+  text-decoration: none;
+  display: block;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  font-family: 'Yuji Mai', cursive;
+}
+
+
+.menu-button.open span:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.menu-button.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button.open span:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+
+h1 {
+  font-size: 30px;
+
+
+}
+
+
+
+.home-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 200px;
+  height: 80px;
+  z-index: 10000;
+}
+
+.home-icon {
+  font-size: 100px;
+}
+
+
+.home-button:active {
+  transform: scale(0.5);
+}
+
+.text {
+  margin-bottom: 5em;
+}
+
+
+.material-symbols-outlined {
+  font-size: 75px;
+  color: white;
+}
+
+
+.material-symbols-outlined.home-icon {
+  font-size: 75px;
+}
+
+
+
+iframe {
+  width: 95vw;         
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+}
+
+
+.video-center {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
