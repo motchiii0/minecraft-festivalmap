@@ -202,11 +202,18 @@ h1 {
   font-size: 75px;
 }
 
-body {
-  margin: 0;
+
+
+iframe {
+  width: 95vw;         
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+}
+
+
+.video-center {
   min-height: 100vh;
   display: flex;
-  justify-content: center; /* 横中央 */
-  align-items: center;     /* 縦中央 */
-  background: #000;
+  justify-content: center;
+  align-items: center;
 }
